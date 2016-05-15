@@ -1,1 +1,5 @@
 /build
+/src/main/obj
+fabric.properties
+gradle.properties
+version.properties
