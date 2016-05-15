@@ -3,3 +3,4 @@
 fabric.properties
 gradle.properties
 version.properties
+local.properties
