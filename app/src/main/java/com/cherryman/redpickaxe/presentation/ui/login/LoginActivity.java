@@ -1,4 +1,4 @@
-package com.cherryman.redpickaxe.ui.login;
+package com.cherryman.redpickaxe.presentation.ui.login;
 
 import android.os.Bundle;
 import android.support.design.widget.TextInputEditText;
@@ -9,9 +9,9 @@ import com.cherryman.redpickaxe.di.components.AppComponent;
 import com.cherryman.redpickaxe.di.components.DaggerLoginComponent;
 import com.cherryman.redpickaxe.di.components.LoginComponent;
 import com.cherryman.redpickaxe.di.modules.LoginModule;
-import com.cherryman.redpickaxe.domain.exceptions.AppException;
-import com.cherryman.redpickaxe.presenters.LoginPresenter;
-import com.cherryman.redpickaxe.ui.base.BaseActivity;
+import com.cherryman.redpickaxe.exceptions.AppException;
+import com.cherryman.redpickaxe.presentation.presenters.LoginPresenter;
+import com.cherryman.redpickaxe.presentation.ui.base.BaseActivity;
 
 import javax.inject.Inject;
 
@@ -44,10 +44,14 @@ public class LoginActivity extends BaseActivity implements
     @SuppressWarnings("unused")
     @OnClick(R.id.al_btn_Login)
     public void onLoginClick() {
-        mPresenter.onLoginClick("", "");
+        mPresenter.onLoginClick(
+            mLoginField.getText().toString(),
+            mApiKeyField.getText().toString()
+        );
     }
 
     //region Dependency Injection
+    //--------------------------------------------------------------------------------------------//
     @Override
     protected void setupComponent(AppComponent appComponent) {
         mLoginComponent = DaggerLoginComponent.builder()
@@ -59,6 +63,7 @@ public class LoginActivity extends BaseActivity implements
     //endregion
 
     //region LoginPresenter.View Implementation
+    //--------------------------------------------------------------------------------------------//
     @Override
     public void showError(AppException e) {
         Toast.makeText(LoginActivity.this, "error call from presenter", Toast.LENGTH_SHORT).show();

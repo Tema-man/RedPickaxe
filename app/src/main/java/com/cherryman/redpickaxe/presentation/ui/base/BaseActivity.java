@@ -1,4 +1,4 @@
-package com.cherryman.redpickaxe.ui.base;
+package com.cherryman.redpickaxe.presentation.ui.base;
 
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;

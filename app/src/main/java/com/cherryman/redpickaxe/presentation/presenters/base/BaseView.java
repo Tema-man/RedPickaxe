@@ -1,4 +1,4 @@
-package com.cherryman.redpickaxe.presenters.base;
+package com.cherryman.redpickaxe.presentation.presenters.base;
 
 /**
  * @author Artemii Vishnevskii

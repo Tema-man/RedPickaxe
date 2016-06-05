@@ -2,7 +2,7 @@ package com.cherryman.redpickaxe.di.components;
 
 import com.cherryman.redpickaxe.di.ActivityScope;
 import com.cherryman.redpickaxe.di.modules.LoginModule;
-import com.cherryman.redpickaxe.ui.login.LoginActivity;
+import com.cherryman.redpickaxe.presentation.ui.login.LoginActivity;
 
 import dagger.Component;
 

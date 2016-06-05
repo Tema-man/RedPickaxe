@@ -3,4 +3,6 @@
     <string name="label.hint.login">Login</string>
     <string name="label.hint.api_key">Api key</string>
     <string name="label.login">Login</string>
+    <string name="error_noInternetConnection">No internet connection. Please check your connection settings.</string>
+    <string name="error_networkError">Network error!</string>
 </resources>

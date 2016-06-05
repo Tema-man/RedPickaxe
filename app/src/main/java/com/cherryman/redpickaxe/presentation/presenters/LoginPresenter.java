@@ -1,8 +1,8 @@
-package com.cherryman.redpickaxe.presenters;
+package com.cherryman.redpickaxe.presentation.presenters;
 
-import com.cherryman.redpickaxe.domain.exceptions.AppException;
-import com.cherryman.redpickaxe.presenters.base.BaseView;
-import com.cherryman.redpickaxe.presenters.base.Presenter;
+import com.cherryman.redpickaxe.exceptions.AppException;
+import com.cherryman.redpickaxe.presentation.presenters.base.BaseView;
+import com.cherryman.redpickaxe.presentation.presenters.base.Presenter;
 
 /**
  * @author Artemii Vishnevskii
