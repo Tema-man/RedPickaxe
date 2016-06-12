@@ -5,4 +5,7 @@
     <string name="label.login">Login</string>
     <string name="error_noInternetConnection">No internet connection. Please check your connection settings.</string>
     <string name="error_networkError">Network error!</string>
+    <string name="label.hint.host">Host name</string>
+    <string name="label.hint.password">Password</string>
+    <string name="label.or">Or</string>
 </resources>
