@@ -2,6 +2,9 @@
 <manifest package="com.cherryman.redpickaxe"
           xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
     <application
         android:name=".App"
         android:allowBackup="true"
@@ -21,8 +24,8 @@
         </activity>
         <meta-data
             android:name="io.fabric.ApiKey"
-            android:value="95775f8dedadb2bdcc4e74385e486537baa2e6d5" />
+            android:value="95775f8dedadb2bdcc4e74385e486537baa2e6d5"/>
     </application>
 
-    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.INTERNET"/>
 </manifest>
