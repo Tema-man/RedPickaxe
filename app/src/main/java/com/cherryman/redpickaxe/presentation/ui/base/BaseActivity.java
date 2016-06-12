@@ -7,7 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.cherryman.redpickaxe.App;
-import com.cherryman.redpickaxe.di.components.AppComponent;
+import com.cherryman.redpickaxe.presentation.di.components.AppComponent;
 
 import butterknife.ButterKnife;
 

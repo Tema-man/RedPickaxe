@@ -1,4 +1,4 @@
-package com.cherryman.redpickaxe.data.repository.userstore;
+package com.cherryman.redpickaxe.data.repository.user;
 
 import com.cherryman.redpickaxe.data.entity.UserEntity;
 
@@ -10,4 +10,6 @@ import rx.Observable;
  */
 public interface UserStore {
     Observable<UserEntity> getUserEntity(String apiKey);
+
+    Observable<UserEntity> getUserEntity(String login, String password);
 }

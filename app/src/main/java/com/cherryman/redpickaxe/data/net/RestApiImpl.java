@@ -16,13 +16,19 @@ import rx.Observable;
  */
 public class RestApiImpl implements RestApi {
 
-    @Inject ApiClient mApiClient;
+    ApiClient mApiClient;
+
+    @Inject
+    public RestApiImpl(ApiClient apiClient){
+        mApiClient = apiClient;
+    }
 
     @Override
     public Observable<UserEntity> login(String apiKey) {
         return Observable.create(subscriber -> {
-            HttpUrl url = HttpUrl.parse(Urls.HOST).newBuilder()
-                .addPathSegment(Urls.MY_USER)
+            HttpUrl url = mApiClient.host()
+                .addPathSegment(Urls.USERS)
+                .addPathSegment(Urls.CURRENT)
                 .build();
 
             Request request = new Request.Builder().url(url)
@@ -41,8 +47,9 @@ public class RestApiImpl implements RestApi {
     @Override
     public Observable<UserEntity> login(String login, String password) {
         return Observable.create(subscriber -> {
-            HttpUrl url = HttpUrl.parse(Urls.HOST).newBuilder()
-                .addPathSegment(Urls.MY_USER)
+            HttpUrl url = mApiClient.host()
+                .addPathSegment(Urls.USERS)
+                .addPathSegment(Urls.CURRENT)
                 .build();
 
             String credential = Credentials.basic("tema_man", "abc31415926");

@@ -1,10 +1,11 @@
 package com.cherryman.redpickaxe.domain.executor;
 
-import java.util.concurrent.Executor;
+import rx.Scheduler;
 
 /**
  * @author Artemii Vishnevskii
  * @since 22.05.2016
  */
-public interface ThreadExecutor extends Executor {
+public interface JobThread {
+    Scheduler getScheduler();
 }

@@ -13,6 +13,7 @@ import java.io.IOException;
 
 import javax.inject.Inject;
 
+import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -24,11 +25,16 @@ import okhttp3.logging.HttpLoggingInterceptor;
  */
 public class ApiClient {
 
-    @Inject OkHttpClient mHttpClient;
-    @Inject Context mAppContext;
+    private Context mAppContext;
+    private OkHttpClient mHttpClient;
 
-    public ApiClient() {
+    private String mHost;
+
+    @Inject
+    public ApiClient(Context context) {
+        mAppContext = context;
         createHttpClient();
+        mHost = "http://redmine.meshsecret.com";
     }
 
     private void createHttpClient() {
@@ -38,6 +44,17 @@ public class ApiClient {
         mHttpClient = new OkHttpClient.Builder()
             .addInterceptor(loggingInterceptor)
             .build();
+    }
+
+    private boolean isInternetAvailable() {
+        ConnectivityManager connectivityManager =
+            (ConnectivityManager) mAppContext.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
+        return (networkInfo != null && networkInfo.isConnectedOrConnecting());
+    }
+
+    public HttpUrl.Builder host() {
+        return HttpUrl.parse(mHost).newBuilder();
     }
 
     public <R> R makeRequest(Class<R> responseClass, Request request) throws AppException {
@@ -54,12 +71,5 @@ public class ApiClient {
         } catch (IOException ioe) {
             throw Errors.noInternet();
         }
-    }
-
-    private boolean isInternetAvailable() {
-        ConnectivityManager connectivityManager =
-            (ConnectivityManager) mAppContext.getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
-        return (networkInfo != null && networkInfo.isConnectedOrConnecting());
     }
 }

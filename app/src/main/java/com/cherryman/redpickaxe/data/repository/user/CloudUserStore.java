@@ -1,4 +1,4 @@
-package com.cherryman.redpickaxe.data.repository.userstore;
+package com.cherryman.redpickaxe.data.repository.user;
 
 import com.cherryman.redpickaxe.data.entity.UserEntity;
 import com.cherryman.redpickaxe.data.net.RestApi;
@@ -13,10 +13,21 @@ import rx.Observable;
  */
 public class CloudUserStore implements UserStore {
 
-    @Inject RestApi mRestApi;
+    RestApi mRestApi;
+
+    @Inject
+    public CloudUserStore(RestApi restApi) {
+        mRestApi = restApi;
+    }
+
 
     @Override
     public Observable<UserEntity> getUserEntity(String apiKey) {
         return mRestApi.login(apiKey);
+    }
+
+    @Override
+    public Observable<UserEntity> getUserEntity(String login, String password) {
+        return mRestApi.login(login, password);
     }
 }

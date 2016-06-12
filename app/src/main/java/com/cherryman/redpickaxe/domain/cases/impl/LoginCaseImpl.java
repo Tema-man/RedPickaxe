@@ -7,7 +7,7 @@ import com.cherryman.redpickaxe.domain.repository.UserRepository;
 import com.cherryman.redpickaxe.domain.cases.LoginCase;
 import com.cherryman.redpickaxe.domain.cases.base.AbsCase;
 import com.cherryman.redpickaxe.domain.executor.PostThread;
-import com.cherryman.redpickaxe.domain.executor.ThreadExecutor;
+import com.cherryman.redpickaxe.domain.executor.JobThread;
 
 import javax.inject.Inject;
 
@@ -23,11 +23,13 @@ public class LoginCaseImpl extends AbsCase<UserEntity> implements LoginCase {
     private String mLogin;
     private String mPassword;
 
-    @Inject UserRepository mUserRepository;
+    UserRepository mUserRepository;
 
     @Inject
-    public LoginCaseImpl(ThreadExecutor executor, PostThread postThread) {
+    public LoginCaseImpl(JobThread executor, PostThread postThread,
+                         UserRepository userRepository) {
         super(executor, postThread);
+        mUserRepository = userRepository;
     }
 
     @Override
@@ -36,7 +38,7 @@ public class LoginCaseImpl extends AbsCase<UserEntity> implements LoginCase {
     }
 
     @Override
-    public void setCredentioals(String login, String password) {
+    public void setCredentials(String login, String password) {
         mLogin = login;
         mPassword = password;
     }

@@ -3,9 +3,9 @@ package com.cherryman.redpickaxe;
 import android.app.Application;
 import android.content.Context;
 
-import com.cherryman.redpickaxe.di.components.AppComponent;
-import com.cherryman.redpickaxe.di.components.DaggerAppComponent;
-import com.cherryman.redpickaxe.di.modules.AppModule;
+import com.cherryman.redpickaxe.presentation.di.components.AppComponent;
+import com.cherryman.redpickaxe.presentation.di.components.DaggerAppComponent;
+import com.cherryman.redpickaxe.presentation.di.modules.AppModule;
 import com.crashlytics.android.core.CrashlyticsCore;
 
 import io.fabric.sdk.android.Fabric;

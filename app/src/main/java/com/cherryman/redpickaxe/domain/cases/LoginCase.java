@@ -11,5 +11,5 @@ public interface LoginCase extends Case<UserEntity> {
 
     void setApiKey(String apiKey);
 
-    void setCredentioals(String login, String password);
+    void setCredentials(String login, String password);
 }

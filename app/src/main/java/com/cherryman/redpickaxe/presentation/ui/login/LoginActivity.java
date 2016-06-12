@@ -5,10 +5,10 @@ import android.support.design.widget.TextInputEditText;
 import android.widget.Toast;
 
 import com.cherryman.redpickaxe.R;
-import com.cherryman.redpickaxe.di.components.AppComponent;
-import com.cherryman.redpickaxe.di.components.DaggerLoginComponent;
-import com.cherryman.redpickaxe.di.components.LoginComponent;
-import com.cherryman.redpickaxe.di.modules.LoginModule;
+import com.cherryman.redpickaxe.presentation.di.components.AppComponent;
+import com.cherryman.redpickaxe.presentation.di.components.DaggerLoginComponent;
+import com.cherryman.redpickaxe.presentation.di.components.LoginComponent;
+import com.cherryman.redpickaxe.presentation.di.modules.LoginModule;
 import com.cherryman.redpickaxe.exceptions.AppException;
 import com.cherryman.redpickaxe.presentation.presenters.LoginPresenter;
 import com.cherryman.redpickaxe.presentation.ui.base.BaseActivity;
@@ -21,7 +21,9 @@ import butterknife.OnClick;
 public class LoginActivity extends BaseActivity implements
     LoginPresenter.View {
 
+    @BindView(R.id.al_edit_host) TextInputEditText mHostField;
     @BindView(R.id.al_edit_login) TextInputEditText mLoginField;
+    @BindView(R.id.al_edit_password) TextInputEditText mPassField;
     @BindView(R.id.al_edit_apiKey) TextInputEditText mApiKeyField;
 
     @Inject LoginPresenter mPresenter;
